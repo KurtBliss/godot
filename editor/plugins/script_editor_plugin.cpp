@@ -2626,6 +2626,7 @@ void ScriptEditor::reload_scripts(bool p_refresh_only) {
 			Ref<TextFile> text_file = edited_res;
 			if (text_file.is_valid()) {
 				text_file->reload_from_file();
+				text_file->set_last_modified_time(FileAccess::get_modified_time(text_file->get_path()));
 			}
 		}
 
